@@ -52,7 +52,16 @@ public class Travel {
 		}
 	}
 
-
+	public String[] DFS(String departure ) throws IllegalArgumentException{
+		String[] returnArr = new String[graph.vertList.size()];
+		Vertex<String> startVert = null;
+		ArrayList<String> visitedArr = new ArrayList<String>();
+ 		HashMap<Vertex<String>, Boolean> visited = new HashMap<Vertex<String>, Boolean>();
+		HashMap<Edge<Integer>, Vertex<String>> forest = new HashMap< Edge<Integer>, Vertex<String>>();
+		for (Vertex<String> vert: graph.vertices()) {
+			if ((vert).getElement() == departure ) {
+				startVert = vert;
+				break;
 			}
 		}
 		if (startVert == null) throw new IllegalArgumentException("Departure Not Found!");
